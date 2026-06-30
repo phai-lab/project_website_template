@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Teaser placeholder">
+  <rect width="1280" height="720" fill="#eef1f4"/>
+  <rect x="8" y="8" width="1264" height="704" fill="none" stroke="#4e79a7" stroke-width="3" stroke-dasharray="14 10"/>
+  <g stroke="#cdd7e3" stroke-width="2">
+    <line x1="8" y1="8" x2="1272" y2="712"/>
+    <line x1="1272" y1="8" x2="8" y2="712"/>
+  </g>
+  <g fill="#4e79a7" font-family="'Source Sans Pro', Arial, sans-serif" text-anchor="middle">
+    <circle cx="640" cy="300" r="64" fill="#ffffff" stroke="#4e79a7" stroke-width="4"/>
+    <polygon points="620,270 620,330 672,300" fill="#4e79a7"/>
+    <text x="640" y="430" font-size="46" font-weight="700">Teaser figure or video</text>
+    <text x="640" y="478" font-size="28" fill="#7d8ca0">replace with images/teaser.* (16:9)</text>
+  </g>
+</svg>

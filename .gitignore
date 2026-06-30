@@ -1,0 +1,7 @@
+# OMC local state (not part of the template)
+.omc/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
