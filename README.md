@@ -1,13 +1,11 @@
 # PHAI Lab — Paper Project-Page Template
 
-A reusable, consistent website template for PHAI Lab paper pages, modeled on the
-[UMI](https://umi-gripper.github.io/) and
-[Diffusion Policy](https://diffusion-policy.cs.columbia.edu/) project pages
-(both built on the [HTML5 UP **Strata**](https://html5up.net/strata) theme).
+A reusable, consistent, and premium-looking website template for PHAI Lab paper
+pages, built on the [HTML5 UP **Strata**](https://html5up.net/strata) theme.
 
 **Live demo:** https://phai-lab.github.io/project_website_template/
 
-slate-blue default · single-variable re-theming · responsive · GitHub-Pages-ready
+TAMU-maroon default · single-variable re-theming · responsive · accessible · GitHub-Pages-ready
 
 ---
 
@@ -16,12 +14,12 @@ slate-blue default · single-variable re-theming · responsive · GitHub-Pages-r
 | File / folder | Purpose |
 | --- | --- |
 | `index.html` | **Filled-in example** page — what a finished paper page looks like. |
-| `template.html` | **Blank scaffold** — copy this to start a new page. Every section is marked with `<!-- ===== … ===== -->` comments and `REPLACE` markers. |
+| `template.html` | **Blank scaffold** — copy this to start a new page. Every section is marked with `===== … =====` comments and `REPLACE` markers. |
 | `assets/css/main.css` | The Strata theme (don't edit). |
-| `assets/css/phai.css` | **PHAI customizations** — change the accent color and layout tweaks here. |
+| `assets/css/phai.css` | **PHAI customizations** — change the accent color and all layout tweaks here. |
 | `assets/css/font-awesome.min.css`, `assets/fonts/` | Icons used in the link buttons. |
 | `assets/js/` | Theme scripts (jQuery, skel, poptrox lightbox). |
-| `images/` | `logo-phai.png` (favicon/logo) + `placeholder-*.svg` for every section. |
+| `images/` | `tamu-logo.png` (affiliation logo in the top row), `favicon.png` (browser-tab icon), `og-card.png` (social-share preview, 1200×630), and `placeholder-{teaser,figure,author,logo}.svg` for the section figures. Swap these for your own assets. |
 | `videos/` | Put your `.mp4` clips here. |
 | `.nojekyll` | Tells GitHub Pages to serve files as-is (no Jekyll processing). |
 
@@ -35,30 +33,31 @@ cp template.html my-paper.html      # or edit index.html to make it the site's h
 
 Then open the copy and:
 
-1. Search for **`REPLACE`** and fill in every spot (title, authors, abstract, BibTeX…).
+1. Search for **`REPLACE`** and fill in every spot (title, authors, abstract, BibTeX,
+   and the `og:url` / `canonical` / `og:image` URLs in `<head>`).
 2. Put figures in `images/` and clips in `videos/`, then update the `src="…"` paths.
-3. Delete any section block you don't need (each is wrapped in `<!-- ===== … ===== -->`).
+3. Delete any section block you don't need (each is wrapped in `===== … =====` comments).
 
 ### Re-theme the accent color (one line)
 
-Open `assets/css/phai.css` and change:
+Open `assets/css/phai.css` and change `--accent` (and the matching `--accent-rgb`):
 
 ```css
-:root { --accent: #4e79a7; }   /* slate blue (default) */
+:root { --accent: #500000; --accent-rgb: 80, 0, 0; }   /* TAMU Aggie Maroon (default) */
 ```
 
-Examples: `#500000` maroon · `#8C1515` cardinal · `#1a73e8` blue. The title, link
-buttons, author hovers, and footer all follow `--accent`.
+Examples: `#8C1515` cardinal · `#1a73e8` blue · `#4e79a7` slate. The title, section
+underlines, primary button, links, and accents all follow `--accent`.
 
 ---
 
 ## Sections included
 
 Affiliation logos · Title / subtitle / venue · Authors + affiliations ·
-Link buttons (Paper / arXiv / Code / Video / Data) · Teaser (image *or* video) ·
+Link buttons (Paper / arXiv / Code / Video / Data) · Teaser (image *or* autoplaying video) ·
 Abstract · Video (responsive YouTube embed) · Method (figures + text) ·
-Results (responsive grid) · Team (circular author photos) · BibTeX ·
-Acknowledgements · Footer.
+Results (responsive grid · side-by-side **Ours vs Baseline** comparison · quantitative table) ·
+Team (circular author photos) · BibTeX · Acknowledgements · Footer.
 
 ### Link-button icons
 
@@ -68,7 +67,8 @@ Buttons use Font Awesome 4 via the theme's icon class. Pattern:
 <a href="URL" class="button special icon fa-github">Code</a>
 ```
 
-Handy icons: `fa-file-pdf-o` (paper), `fa-file-text-o` (arXiv), `fa-github` (code),
+`special` makes the button accent-colored (use it for the primary link). Handy icons:
+`fa-file-pdf-o` (paper), `fa-file-text-o` (arXiv), `fa-github` (code),
 `fa-youtube-play` (video), `fa-database` (data), `fa-external-link` (project).
 
 ### The results / media grid
@@ -81,6 +81,8 @@ with `$`:
 4u  + 4u + 4u$       → 3 across
 3u  + 3u + 3u + 3u$  → 4 across
 ```
+
+On phones the result grid stacks and the team grid drops to 2-up automatically.
 
 ---
 
@@ -108,14 +110,13 @@ This repo is already structured for Pages (static files at the repo root + `.noj
 
 > For a **dedicated paper page** with its own URL, create a new repo (e.g.
 > `phai-lab/my-paper`), copy this template into it, and it will publish at
-> `https://phai-lab.github.io/my-paper/`. Because all asset paths are **relative**,
-> it works at any sub-path with no changes.
+> `https://phai-lab.github.io/my-paper/`. All asset paths are **relative**, so it works
+> at any sub-path with no changes — but remember to set the absolute `og:url` /
+> `canonical` / `og:image` URLs in `<head>` to the new address.
 
 ---
 
 ## Credits
 
-Template adapted from [HTML5 UP — Strata](https://html5up.net/strata) by @ajlkn,
-free under the [CCA 3.0 license](https://html5up.net/license). Layout inspired by the
-[UMI](https://umi-gripper.github.io/) and
-[Diffusion Policy](https://diffusion-policy.cs.columbia.edu/) project pages.
+Template built on [HTML5 UP — Strata](https://html5up.net/strata) by @ajlkn,
+free under the [CCA 3.0 license](https://html5up.net/license).

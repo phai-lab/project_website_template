@@ -2,38 +2,50 @@
 <!--
 	================================================================================
 	PHAI Lab — Paper Project Page TEMPLATE
-	Built on "Strata" by HTML5 UP (html5up.net) — the same theme used by the
-	UMI (umi-gripper.github.io) and Diffusion Policy project pages.
+	Built on "Strata" by HTML5 UP (html5up.net).
 
 	HOW TO USE
 	  1. Copy this file to a new page, e.g.  cp template.html index.html
-	  2. Search for "REPLACE" and fill in every spot.
+	  2. Search for "REPLACE" and fill in every spot (including the og:url / canonical).
 	  3. Drop your figures/videos in images/ and videos/ and update the src paths.
 	  4. Change the accent color in ONE place: assets/css/phai.css  ->  --accent
 	  5. Preview locally:  python3 -m http.server 8000   then open localhost:8000
 	  6. See README.md for the full guide and the GitHub Pages deploy steps.
 
-	Every section below is wrapped in  <!-- ===== SECTION ===== -->  comments.
+	Every section below is wrapped in  "===== SECTION ====="  HTML comments.
 	Delete any section you don't need.
 	================================================================================
 -->
 <html lang="en">
 	<head>
-		<!-- ===== META (REPLACE title + description + url) ===== -->
+		<!-- ===== META (REPLACE title + description + urls) ===== -->
 		<title>REPLACE — Paper Title | PHAI Lab</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="REPLACE — one-sentence description of the paper." />
 
 		<!-- Open Graph / social-card preview -->
-		<meta property="og:type"        content="website" />
-		<meta property="og:title"       content="REPLACE — Paper Title" />
-		<meta property="og:description" content="REPLACE — one-sentence description of the paper." />
-		<meta property="og:image"       content="images/placeholder-teaser.svg" />
-		<!-- <meta property="og:url"   content="https://phai-lab.github.io/your-paper/" /> -->
+		<meta property="og:type"         content="website" />
+		<meta property="og:title"        content="REPLACE — Paper Title" />
+		<meta property="og:description"  content="REPLACE — one-sentence description of the paper." />
+		<!-- REPLACE both URLs below with your page's ABSOLUTE deployed URL (e.g.
+		     https://phai-lab.github.io/your-paper/). They must match the live path. -->
+		<meta property="og:url"          content="https://phai-lab.github.io/REPLACE-your-paper/" />
+		<link rel="canonical" href="https://phai-lab.github.io/REPLACE-your-paper/" />
+		<!-- og:image MUST be an ABSOLUTE url to a real raster (PNG/JPEG, 1200x630) — crawlers
+		     fetch it out of page context and ignore relative paths. Ship images/og-card.png. -->
+		<meta property="og:image"        content="https://phai-lab.github.io/REPLACE-your-paper/images/og-card.png" />
+		<meta property="og:image:width"  content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt"    content="REPLACE — short teaser alt text" />
+		<!-- Twitter / X card (image should match og:image) -->
+		<meta name="twitter:card"        content="summary_large_image" />
+		<meta name="twitter:title"       content="REPLACE — Paper Title" />
+		<meta name="twitter:description" content="REPLACE — one-sentence description of the paper." />
+		<meta name="twitter:image"       content="https://phai-lab.github.io/REPLACE-your-paper/images/og-card.png" />
 
-		<!-- Favicon: PHAI lab logo -->
-		<link rel="icon" type="image/png" href="images/logo-phai.png" />
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" sizes="any" href="images/favicon.png" />
 
 		<!-- Stylesheets: theme first, then PHAI overrides -->
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -41,58 +53,62 @@
 	</head>
 	<body id="top">
 
-		<div id="main">
+		<main id="main">
 
-			<!-- ===== AFFILIATION LOGOS (your university + collaborators; REPLACE) ===== -->
-			<div class="logo-row">
-				<img src="images/tamu-logo.png" alt="Texas A&amp;M University" />
-				<img src="images/placeholder-logo.svg" alt="Collaborating institution" />
-				<img src="images/placeholder-logo.svg" alt="Collaborating institution" />
-			</div>
+			<header class="masthead">
+				<!-- ===== AFFILIATION LOGOS (your university + collaborators; REPLACE) ===== -->
+				<div class="logo-row">
+					<img src="images/tamu-logo.png" alt="Texas A&amp;M University" />
+					<img src="images/placeholder-logo.svg" alt="Collaborating institution" />
+					<img src="images/placeholder-logo.svg" alt="Collaborating institution" />
+				</div>
 
-			<!-- ===== TITLE / SUBTITLE / VENUE (REPLACE) ===== -->
-			<h1 class="title">REPLACE — Paper Title</h1>
-			<h2 class="subtitle">REPLACE — short, catchy one-line description</h2>
-			<p class="venue">REPLACE — Conference / Journal Year &nbsp;·&nbsp; (e.g. CVPR 2026)</p>
+				<!-- ===== TITLE / SUBTITLE / VENUE (REPLACE) ===== -->
+				<h1 class="title">REPLACE — Paper Title</h1>
+				<h2 class="subtitle">REPLACE — short, catchy one-line description</h2>
+				<p class="venue">REPLACE — Conference / Journal Year &nbsp;·&nbsp; (e.g. CVPR 2026)</p>
 
-			<!-- ===== AUTHORS (REPLACE names, links, superscripts) ===== -->
-			<!-- * = equal contribution.  Superscripts map to the affiliations below. -->
-			<p class="authors">
-				<a href="#">First Author<sup>*1</sup></a>,
-				<a href="#">Second Author<sup>*1</sup></a>,
-				<a href="#">Third Author<sup>2</sup></a>,
-				<a href="#">Senior Author<sup>1</sup></a>
-			</p>
-			<p class="affiliations">
-				<sup>1</sup> Institution One &nbsp;&nbsp;&nbsp;
-				<sup>2</sup> Institution Two &nbsp;&nbsp;&nbsp;
-				<sup>*</sup> Equal contribution
-			</p>
+				<!-- ===== AUTHORS (REPLACE names, links, superscripts) ===== -->
+				<!-- * = equal contribution.  Superscripts map to the affiliations below. -->
+				<p class="authors">
+					<a href="#">First Author<sup>*1</sup></a>,
+					<a href="#">Second Author<sup>*1</sup></a>,
+					<a href="#">Third Author<sup>2</sup></a>,
+					<a href="#">Senior Author<sup>1</sup></a>
+				</p>
+				<p class="affiliations">
+					<sup>1</sup> <a href="https://www.tamu.edu/">Texas A&amp;M University</a> &nbsp;&nbsp;&nbsp;
+					<sup>2</sup> Institution Two &nbsp;&nbsp;&nbsp;
+					<sup>*</sup> Equal contribution
+				</p>
 
-			<!-- ===== LINK BUTTONS (REPLACE hrefs; delete any you don't have) ===== -->
-			<div class="links">
-				<a href="#" class="button special icon fa-file-pdf-o">Paper</a>
-				<a href="#" class="button icon fa-file-text-o">arXiv</a>
-				<a href="#" class="button icon fa-github">Code</a>
-				<a href="#" class="button icon fa-youtube-play">Video</a>
-				<a href="#" class="button icon fa-database">Data</a>
-			</div>
+				<!-- ===== LINK BUTTONS (REPLACE hrefs; delete any you don't have) ===== -->
+				<div class="links">
+					<a href="#" class="button special icon fa-file-pdf-o">Paper</a>
+					<a href="#" class="button icon fa-file-text-o">arXiv</a>
+					<a href="#" class="button icon fa-github">Code</a>
+					<a href="#video" class="button icon fa-youtube-play">Video</a>
+					<a href="#" class="button icon fa-database">Data</a>
+				</div>
+			</header>
 
-			<!-- ===== TEASER (REPLACE with a figure OR a video) ===== -->
-			<!-- Option A — image: -->
+			<!-- ===== TEASER (REPLACE) =====
+			     PREFERRED (premium default): an autoplaying muted-loop clip. Drop
+			     videos/teaser.mp4 in place, then DELETE the <img> block below and
+			     UNCOMMENT this one:
+
 			<span class="image teaser">
-				<img src="images/placeholder-teaser.svg" alt="Teaser figure" />
-			</span>
-			<!-- Option B — autoplaying video (delete the image above, uncomment this):
-			<span class="image teaser">
-				<video autoplay loop muted playsinline style="width:100%;">
+				<video autoplay loop muted playsinline preload="metadata"
+				       poster="images/placeholder-teaser.svg" style="width:100%;">
 					<source src="videos/teaser.mp4" type="video/mp4">
 				</video>
 			</span>
-			-->
-			<p class="media-caption">REPLACE — one-line teaser caption.</p>
-
-			<hr />
+			     -->
+			<!-- Fallback: a static teaser figure (used here so the page renders out-of-the-box). -->
+			<span class="image teaser">
+				<img src="images/placeholder-teaser.svg" alt="REPLACE — describe what the teaser figure SHOWS (for screen readers)" />
+			</span>
+			<p class="media-caption">REPLACE — one-line teaser caption (a teaser figure or an autoplaying clip).</p>
 
 			<!-- ===== ABSTRACT (REPLACE) ===== -->
 			<h3>Abstract</h3>
@@ -102,23 +118,21 @@
 				the method, and the headline result.
 			</p>
 
-			<hr />
-
 			<!-- ===== VIDEO (REPLACE YouTube ID, or delete section) ===== -->
-			<h3>Video</h3>
+			<h3 id="video">Video</h3>
 			<div class="video-embed">
 				<!-- Replace VIDEO_ID with your YouTube id (the part after watch?v=). -->
 				<iframe src="https://www.youtube.com/embed/VIDEO_ID"
 						title="Project video" allowfullscreen
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
 			</div>
-
-			<hr />
+			<p class="media-caption">REPLACE — one-line video caption (or delete).</p>
 
 			<!-- ===== METHOD (REPLACE figure + text; duplicate for more parts) ===== -->
 			<h3>Method</h3>
+			<!-- alt text is REQUIRED on every content image: describe what it SHOWS, not "figure". (Decorative-only images use alt="".) -->
 			<span class="image">
-				<img src="images/placeholder-figure.svg" alt="Method overview" />
+				<img src="images/placeholder-figure.svg" alt="REPLACE — describe the method/pipeline figure" />
 			</span>
 			<p class="media-caption">REPLACE — figure caption explaining the pipeline.</p>
 			<p>
@@ -127,35 +141,62 @@
 				more figures.
 			</p>
 
-			<hr />
-
-			<!-- ===== RESULTS (REPLACE; this is a responsive grid of media tiles) ===== -->
+			<!-- ===== RESULTS (REPLACE) ===== -->
 			<h3>Results</h3>
+
+			<!-- (a) Responsive media grid. 12-col Strata grid: 4u+4u+4u$ = 3 across,
+			     6u+6u$ = 2 across, 3u x4 = 4 across. Last cell in a row ends with "$". -->
 			<div class="box alt">
 				<div class="row 50% uniform">
 					<div class="4u">
-						<span class="image fit"><img src="images/placeholder-figure.svg" alt="Result 1" /></span>
+						<span class="image fit"><img src="images/placeholder-figure.svg" alt="REPLACE — describe result 1" /></span>
 						<p class="media-caption">REPLACE — result 1</p>
 					</div>
 					<div class="4u">
-						<span class="image fit"><img src="images/placeholder-figure.svg" alt="Result 2" /></span>
+						<span class="image fit"><img src="images/placeholder-figure.svg" alt="REPLACE — describe result 2" /></span>
 						<p class="media-caption">REPLACE — result 2</p>
 					</div>
 					<div class="4u$">
-						<span class="image fit"><img src="images/placeholder-figure.svg" alt="Result 3" /></span>
+						<span class="image fit"><img src="images/placeholder-figure.svg" alt="REPLACE — describe result 3" /></span>
 						<p class="media-caption">REPLACE — result 3</p>
 					</div>
 				</div>
-				<!-- Grid widths use the Strata grid: 12 columns per row.
-				     4u + 4u + 4u$  = 3 across.   6u + 6u$ = 2 across.   3u x4 = 4 across.
-				     The last cell in a row ends with "$" (e.g. 4u$). -->
 			</div>
 
-			<hr />
+			<!-- (b) Side-by-side comparison (Ours vs Baseline). Left col gets the accent label via class="col ours". -->
+			<div class="compare">
+				<div class="col ours">
+					<span class="col-label">Ours</span><span class="speed-badge">1&times;</span>
+					<img src="images/placeholder-figure.svg" alt="REPLACE — our method" />
+				</div>
+				<div class="col">
+					<span class="col-label">Baseline</span><span class="speed-badge">1&times;</span>
+					<img src="images/placeholder-figure.svg" alt="REPLACE — baseline" />
+				</div>
+			</div>
+			<p class="media-caption">REPLACE — comparison caption (left: ours, right: baseline).</p>
+			<!-- Option B — autoplaying clips (drop files in videos/, swap each <img> above for):
+			<video autoplay loop muted playsinline preload="metadata" poster="images/placeholder-figure.svg">
+				<source src="videos/ours.mp4" type="video/mp4"></video>
+			-->
+
+			<!-- (c) Quantitative results table. Best result per row gets class="best". -->
+			<div class="table-wrap">
+				<table class="results-table">
+					<thead><tr><th>Task</th><th>Baseline</th><th>Ours</th></tr></thead>
+					<tbody>
+						<tr><td>REPLACE — Task A</td><td>00.0</td><td class="best">00.0</td></tr>
+						<tr><td>REPLACE — Task B</td><td>00.0</td><td class="best">00.0</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="media-caption">REPLACE — table caption. Best result per row in <span class="best">accent bold</span>.</p>
 
 			<!-- ===== TEAM (optional — circular author photos; REPLACE or delete) ===== -->
 			<h3>Team</h3>
 			<section class="team">
+				<!-- Keep alt="" on portraits: the author name in the same <a> is the accessible label.
+				     Don't set alt="photo"/"author". Only set alt="Person Name" if you delete the visible name. -->
 				<div class="box alt">
 					<div class="row 50% uniform">
 						<div class="3u">
@@ -174,8 +215,6 @@
 				</div>
 			</section>
 
-			<hr />
-
 			<!-- ===== BIBTEX (REPLACE) ===== -->
 			<h3>BibTeX</h3>
 			<pre><code>@article{REPLACE_citekey,
@@ -188,22 +227,20 @@
 			<!-- ===== ACKNOWLEDGEMENTS (REPLACE, or delete) ===== -->
 			<h3>Acknowledgements</h3>
 			<p>
-				REPLACE — funding sources and thanks. Template based on the
-				<a href="https://umi-gripper.github.io/">UMI</a> /
-				<a href="https://diffusion-policy.cs.columbia.edu/">Diffusion Policy</a>
-				pages (HTML5 UP "Strata").
+				REPLACE — funding sources and thanks. This page is built on the open-source
+				<a href="https://html5up.net/">HTML5 UP "Strata"</a> theme.
 			</p>
 
 			<!-- ===== FOOTER ===== -->
 			<footer id="page-footer">
 				<p>
 					&copy; <a href="https://phai-lab.github.io/">PHAI Lab</a>.
-					Page template adapted from <a href="https://html5up.net/">HTML5 UP — Strata</a>
+					Page template built on <a href="https://html5up.net/">HTML5 UP — Strata</a>
 					(<a href="https://html5up.net/license">CCA 3.0</a>).
 				</p>
 			</footer>
 
-		</div>
+		</main>
 
 		<!-- ===== SCRIPTS (do not remove — power the layout + lightbox) ===== -->
 		<script src="assets/js/jquery.min.js"></script>
