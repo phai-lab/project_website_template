@@ -1,7 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="420" height="120" viewBox="0 0 420 120" role="img" aria-label="Institution logo placeholder">
-  <rect x="2" y="2" width="416" height="116" rx="14" fill="#f3f3f6"/>
-  <circle cx="74" cy="60" r="32" fill="#ffffff" stroke="#d7d7de" stroke-width="3"/>
-  <text x="74" y="69" fill="#b3b3ba" font-family="'Inter', Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">LOGO</text>
-  <text x="252" y="56" fill="#6f6f78" font-family="'Inter', Arial, sans-serif" font-size="22" font-weight="600" text-anchor="middle">Institution</text>
-  <text x="252" y="83" fill="#9a9aa2" font-family="'Inter', Arial, sans-serif" font-size="16" text-anchor="middle">logo goes here</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="132" height="120" viewBox="0 0 132 120" role="img" aria-label="University logo placeholder">
+  <g fill="#c3c3ca">
+    <!-- pediment -->
+    <polygon points="66,16 24,40 108,40"/>
+    <!-- architrave -->
+    <rect x="26" y="44" width="80" height="9" rx="2"/>
+    <!-- columns -->
+    <rect x="34" y="57" width="9" height="38"/>
+    <rect x="51" y="57" width="9" height="38"/>
+    <rect x="72" y="57" width="9" height="38"/>
+    <rect x="89" y="57" width="9" height="38"/>
+    <!-- base -->
+    <rect x="24" y="99" width="84" height="9" rx="2"/>
+  </g>
+  <text x="66" y="118" fill="#9a9aa2" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle">University</text>
 </svg>

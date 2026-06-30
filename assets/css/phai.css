@@ -115,10 +115,12 @@ body, input, select, textarea {
 .links { text-align: center; margin-bottom: 1.9em; }
 .links .button {
 	font-family: inherit;
-	display: inline-flex; align-items: center;
+	display: inline-flex; align-items: center; justify-content: center;
+	gap: 0.5em;
+	min-width: 0;                 /* override Strata's min-width so pills hug content */
 	height: auto; line-height: 1;
 	margin: 0.32em 0.3em;
-	padding: 0.85em 1.4em;
+	padding: 0.85em 1.45em;
 	border-radius: 999px;
 	background: var(--ink);
 	color: #fff;
@@ -138,7 +140,8 @@ body, input, select, textarea {
 .links .button:active { transform: translateY(0); }
 .links .button.special { background: var(--accent); box-shadow: 0 4px 14px rgba(80,0,0,.30); }
 .links .button.special:hover { background: var(--accent-strong); }
-.links .button.icon:before { margin-right: 0.55em; }   /* FontAwesome glyph spacing */
+.links .button.icon { padding-left: 1.45em; }          /* cancel Strata's asymmetric icon padding */
+.links .button.icon:before { margin-right: 0; line-height: 1; }  /* spacing handled by flex gap */
 
 /* ---------- Section headings (centered, accent underline) ---------- */
 #main h3 {
@@ -200,6 +203,17 @@ body, input, select, textarea {
 /* ---------- Result / media grid ---------- */
 .box.alt { border: 0; padding: 0; }
 .box.alt .image.fit img { box-shadow: var(--shadow-sm); }
+
+/* Subtle hover lift on grid + team tiles */
+.box.alt .image.fit img,
+.team .image img {
+	transition: transform .18s ease, box-shadow .18s ease;
+}
+.box.alt .image.fit img:hover,
+.team .image img:hover {
+	transform: translateY(-3px);
+	box-shadow: var(--shadow);
+}
 
 /* ---------- Team (circular photos) ---------- */
 .team .image img {
