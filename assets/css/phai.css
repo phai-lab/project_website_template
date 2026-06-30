@@ -1,131 +1,253 @@
 /*
-	PHAI Lab — project-page customizations
-	Layered ON TOP of Strata (assets/css/main.css). Keep all of your tweaks here
-	so the upstream theme stays pristine and upgradeable.
+	PHAI Lab — project-page customizations  (layered ON TOP of Strata main.css)
+	Keep your tweaks here so the upstream theme stays pristine.
 
 	========================================================================
-	RE-THEME A PAGE IN ONE LINE: change --accent below.
-	(e.g. #500000 maroon, #8C1515 cardinal, #1a73e8 blue, #4e79a7 slate)
+	RE-THEME IN ONE PLACE: change --accent below.
+	(e.g. #500000 TAMU maroon, #8C1515 cardinal, #1a73e8 blue, #4e79a7 slate)
 	========================================================================
 */
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
 :root {
-	--accent: #4e79a7;        /* PHAI default: slate blue */
-	--accent-ink: #ffffff;    /* text color on top of --accent */
-	--ink-soft: #585858;
-	--ink-muted: #777777;
+	--accent:        #500000;   /* Texas A&M "Aggie Maroon" */
+	--accent-strong: #7a1f1f;   /* warmer/lighter maroon for hovers */
+	--accent-soft:   #f4ebeb;   /* very light maroon tint   */
+	--ink:        #1d1d1f;      /* neutral near-black headings */
+	--ink-soft:   #3a3a3c;      /* body text            */
+	--ink-muted:  #86868b;      /* captions / meta      */
+	--line:       #e8e8ed;      /* hairline dividers    */
+	--bg-soft:    #f7f7f8;      /* panels / code blocks */
+	--radius:     16px;
+	--shadow:     0 10px 30px rgba(22,32,44,.10), 0 2px 6px rgba(22,32,44,.06);
+	--shadow-sm:  0 2px 8px rgba(22,32,44,.10);
 }
 
-/* ----- Layout container (centered, responsive) ----- */
+/* ---------- Base typography ---------- */
+html, body { background: #fff; }
+body, input, select, textarea {
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+	color: var(--ink-soft);
+	font-size: 16.5px;
+	line-height: 1.7;
+	letter-spacing: -0.004em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+#main h1, #main h2, #main h3, #main h4 {
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+	color: var(--ink);
+}
+#main p { color: var(--ink-soft); }
+#main a { color: var(--accent); border-bottom: none; transition: color .15s ease; }
+#main a:hover { color: var(--accent-strong); }
+
+/* ---------- Layout container ---------- */
 #main {
-	width: min(62em, 92%);
-	max-width: 70em;
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 3em;
-	padding-bottom: 1em;
+	width: min(58em, 92%);
+	max-width: 1040px;
+	margin: 0 auto;
+	padding-top: 3.75em;
+	padding-bottom: 1.5em;
 }
 
-/* ----- Title / subtitle / venue ----- */
+/* ---------- Hero: title / subtitle / venue ---------- */
 #main .title {
 	text-align: center;
 	color: var(--accent);
-	font-size: 300%;
-	line-height: 1.12;
-	margin-bottom: 0.1em;
+	font-size: clamp(2.25rem, 5vw, 3.5rem);
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	line-height: 1.08;
+	margin: 0.1em 0 0.18em;
 }
 #main .subtitle {
 	text-align: center;
-	font-size: 165%;
-	font-weight: 300;
-	color: #333333;
-	margin-bottom: 0.8em;
+	color: var(--ink);
+	font-size: clamp(1.1rem, 2.6vw, 1.55rem);
+	font-weight: 400;
+	letter-spacing: -0.01em;
+	margin-bottom: 0.7em;
 }
 #main .venue {
 	text-align: center;
 	color: var(--accent);
 	font-weight: 600;
-	margin-bottom: 1.1em;
+	letter-spacing: 0.01em;
+	margin-bottom: 1.2em;
 }
 
-/* ----- Affiliation logo row ----- */
+/* ---------- Affiliation logos ---------- */
 .logo-row {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	gap: 2.5em;
-	margin: 0.5em 0 1.5em;
+	display: flex; flex-wrap: wrap;
+	justify-content: center; align-items: center;
+	gap: 2.75em;
+	margin: 0.25em 0 1.6em;
 }
-.logo-row img { max-height: 64px; width: auto; }
+#main .logo-row img {
+	height: 56px; width: auto;
+	object-fit: contain;
+}
 
-/* ----- Authors + affiliations ----- */
+/* ---------- Authors + affiliations ---------- */
 .authors {
 	text-align: center;
-	font-size: 1.18em;
-	line-height: 1.9em;
-	margin-bottom: 0.3em;
+	font-size: 1.16rem;
+	font-weight: 500;
+	line-height: 1.85em;
+	color: var(--ink);
+	margin-bottom: 0.25em;
 }
-.authors a { color: var(--ink-soft); border-bottom: none; }
+.authors a { color: var(--ink); }
 .authors a:hover { color: var(--accent); }
-.authors sup { color: var(--accent); }
+.authors sup { color: var(--accent); font-weight: 600; }
 .affiliations {
 	text-align: center;
 	color: var(--ink-muted);
-	margin-bottom: 1.3em;
+	font-size: 1rem;
 	line-height: 1.7em;
+	margin-bottom: 1.4em;
 }
 .affiliations sup { color: var(--accent); }
 
-/* ----- Link buttons row (Paper / arXiv / Code / Video / Data) ----- */
-.links { text-align: center; margin-bottom: 1.6em; }
-.links .button { margin: 0.3em 0.3em; }
-.button.special {
-	background-color: var(--accent);
-	box-shadow: inset 0 0 0 1px var(--accent);
+/* ---------- Link buttons (pill style) ---------- */
+.links { text-align: center; margin-bottom: 1.9em; }
+.links .button {
+	font-family: inherit;
+	display: inline-flex; align-items: center;
+	height: auto; line-height: 1;
+	margin: 0.32em 0.3em;
+	padding: 0.85em 1.4em;
+	border-radius: 999px;
+	background: var(--ink);
+	color: #fff;
+	font-size: 0.95rem;
+	font-weight: 600;
+	letter-spacing: 0.005em;
+	text-transform: none;
+	border: 0;
+	box-shadow: var(--shadow-sm);
+	transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
-.button.special:hover { background-color: var(--accent); filter: brightness(1.1); }
-.button.special:active { filter: brightness(0.92); }
+.links .button:hover {
+	background: #283341;
+	transform: translateY(-2px);
+	box-shadow: 0 10px 22px rgba(22,32,44,.22);
+}
+.links .button:active { transform: translateY(0); }
+.links .button.special { background: var(--accent); box-shadow: 0 4px 14px rgba(80,0,0,.30); }
+.links .button.special:hover { background: var(--accent-strong); }
+.links .button.icon:before { margin-right: 0.55em; }   /* FontAwesome glyph spacing */
 
-/* ----- Responsive media ----- */
-#main img,
-#main video,
-#main iframe { max-width: 100%; }
+/* ---------- Section headings (centered, accent underline) ---------- */
+#main h3 {
+	text-align: center;
+	font-size: 1.65rem;
+	font-weight: 700;
+	letter-spacing: -0.015em;
+	color: var(--ink);
+	margin: 0.2em 0 0.9em;
+}
+#main h3:after {
+	content: "";
+	display: block;
+	width: 46px; height: 3px;
+	margin: 0.55em auto 0;
+	background: var(--accent);
+	border-radius: 2px;
+}
+
+/* ---------- Dividers (subtle) ---------- */
+#main hr {
+	border: 0; height: 1px;
+	background: var(--line);
+	margin: 3.25em 0;
+}
+
+/* ---------- Media: rounded + soft shadow ---------- */
+#main img, #main video, #main iframe { max-width: 100%; }
 #main img, #main video { height: auto; }
-.teaser { margin: 0.4em 0 1.4em; }
+.teaser { display: block; margin: 0.6em 0 1.4em; }
+.teaser img, .teaser video,
+#main > span.image > img,
+.image.fit img {
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+}
 .media-caption {
 	text-align: center;
 	color: var(--ink-muted);
-	font-size: 0.95em;
-	margin-top: 0.4em;
+	font-size: 0.95rem;
+	margin-top: 0.55em;
+	margin-bottom: 0.4em;
 }
 
-/* Responsive 16:9 wrapper for YouTube/Vimeo embeds */
+/* Responsive 16:9 video wrapper (YouTube/Vimeo) */
 .video-embed {
 	position: relative;
 	width: 100%;
 	padding-bottom: 56.25%;
 	height: 0;
 	margin-bottom: 0.6em;
+	border-radius: var(--radius);
+	overflow: hidden;
+	background: linear-gradient(135deg, #eef2f7, #e3e9f1);
+	box-shadow: var(--shadow);
 }
-.video-embed iframe {
-	position: absolute;
-	top: 0; left: 0;
-	width: 100%; height: 100%;
-	border: 0;
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---------- Result / media grid ---------- */
+.box.alt { border: 0; padding: 0; }
+.box.alt .image.fit img { box-shadow: var(--shadow-sm); }
+
+/* ---------- Team (circular photos) ---------- */
+.team .image img {
+	border-radius: 50%;
+	box-shadow: var(--shadow-sm);
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+}
+.team a { color: var(--ink); font-weight: 600; }
+.team a:hover { color: var(--accent); }
+
+/* ---------- BibTeX ---------- */
+#main pre {
+	background: var(--bg-soft);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	padding: 1.25em 1.4em;
+	box-shadow: none;
+}
+#main pre code {
+	display: block;
+	font-family: 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+	font-size: 0.86rem;
+	line-height: 1.6;
+	color: var(--ink-soft);
+}
+#main p code, #main li code {
+	background: var(--accent-soft);
+	color: var(--accent-strong);
+	border-radius: 6px;
+	padding: 0.1em 0.4em;
+	font-size: 0.88em;
 }
 
-/* ----- Author thumbnails (circular) ----- */
-.team .image img { border-radius: 50%; }
-
-/* ----- BibTeX block ----- */
-pre code { display: block; }
-
-/* ----- Footer ----- */
+/* ---------- Footer ---------- */
 #page-footer {
 	text-align: center;
 	color: var(--ink-muted);
-	font-size: 0.9em;
-	margin: 2.5em 0 1em;
+	font-size: 0.9rem;
+	border-top: 1px solid var(--line);
+	margin-top: 3em;
+	padding-top: 1.5em;
 }
 #page-footer a { color: var(--accent); }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 736px) {
+	.logo-row { gap: 1.5em; }
+	#main .logo-row img { height: 42px; }
+	.links .button { width: 100%; justify-content: center; }
+}
