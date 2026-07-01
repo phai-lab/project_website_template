@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <!--
 	PHAI Lab — EXAMPLE paper project page (filled-in demo of template.html).
-	This is a fictional paper used only to show what a finished page looks like.
+	Structure mirrors the UMI project page; visual system is PHAI navy.
 	To start your own page, copy template.html instead and fill it in.
 -->
 <html lang="en">
@@ -9,7 +9,7 @@
 		<title>PHAI Project Page Template — Example</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="A reusable, premium project-page template for PHAI Lab papers — drop in your title, authors, figures, video, results, and BibTeX." />
+		<meta name="description" content="A reusable, premium project-page template for PHAI Lab papers — drop in your title, teaser, paper, code, team, and results." />
 
 		<!-- Open Graph / social-card preview -->
 		<meta property="og:type"         content="website" />
@@ -43,75 +43,108 @@
 					<img src="images/placeholder-logo.svg" alt="Collaborating institution" />
 				</div>
 
-				<!-- ===== TITLE / SUBTITLE / VENUE ===== -->
+				<!-- ===== TITLE / SUBTITLE ===== -->
 				<h1 class="title">PHAI Project Page Template</h1>
 				<h2 class="subtitle">A Consistent Website Style for <a href="https://phai-lab.github.io/">PHAI Lab</a> Papers</h2>
-				<p class="venue">Example Page &nbsp;·&nbsp; <a href="https://phai-lab.github.io/">PHAI Lab</a> 2026</p>
-
-				<!-- ===== AUTHORS ===== -->
-				<p class="authors">
-					<a href="https://phai-lab.github.io/">First Author<sup>*1</sup></a>,
-					<a href="https://phai-lab.github.io/">Second Author<sup>*1</sup></a>,
-					<a href="https://phai-lab.github.io/">Third Author<sup>2</sup></a>,
-					<a href="https://phai-lab.github.io/">Senior Author<sup>1</sup></a>
-				</p>
-				<p class="affiliations">
-					<sup>1</sup> <a href="https://www.tamu.edu/">Texas A&amp;M University</a> &nbsp;&nbsp;&nbsp;
-					<sup>2</sup> Collaborating Institution &nbsp;&nbsp;&nbsp;
-					<sup>*</sup> Equal contribution
-				</p>
-
-				<!-- ===== LINK BUTTONS ===== -->
-				<div class="links">
-					<a href="https://github.com/phai-lab/project_website_template" class="button special icon fa-file-pdf-o">Paper</a>
-					<a href="https://arxiv.org/" class="button icon fa-file-text-o">arXiv</a>
-					<a href="https://github.com/phai-lab/project_website_template" class="button icon fa-github">Code</a>
-					<a href="#video" class="button icon fa-youtube-play">Video</a>
-					<a href="https://github.com/phai-lab/project_website_template" class="button icon fa-database">Data</a>
-				</div>
 			</header>
 
-			<!-- ===== TEASER ===== -->
-			<span class="image teaser">
-				<img src="images/placeholder-teaser.svg" alt="Placeholder teaser graphic standing in for the paper's main result figure" />
-			</span>
-			<p class="media-caption">Swap this placeholder for your paper's teaser figure or an autoplaying clip.</p>
+			<!-- ===== TEASER (UMI-style labeled media grid) ===== -->
+			<div class="teaser-grid">
+				<div class="cell">
+					<p class="cell-label">Demonstration</p>
+					<div class="media"><img src="images/placeholder-teaser.svg" alt="Placeholder clip standing in for a demonstration" /></div>
+				</div>
+				<div class="cell">
+					<p class="cell-label">Autonomous Rollout</p>
+					<div class="media">
+						<img src="images/placeholder-teaser.svg" alt="Placeholder clip standing in for an autonomous rollout" />
+						<span class="speed-badge">1&times;</span>
+					</div>
+				</div>
+			</div>
+			<p class="media-caption">Swap these placeholders for your paper's teaser figures or autoplaying clips.</p>
 
 			<!-- ===== ABSTRACT ===== -->
 			<h3>Abstract</h3>
 			<p>
 				This page is a live example of the <a href="https://phai-lab.github.io/">PHAI Lab</a> project-page
-				template. Every section you see here — the author list, link buttons, teaser, video, method figures,
-				results grid, side-by-side comparison, results table, team photos, and BibTeX — is a drop-in block you
-				can copy, fill in, or delete. To create a new paper page, copy <code>template.html</code>, replace the
-				placeholders, and you are done. Re-theming the accent color takes a single line in
-				<code>assets/css/phai.css</code>.
+				template. Its structure mirrors well-developed robotics project pages — a labeled teaser, an abstract,
+				a paper block with a clickable thumbnail, an icon grid for code and data, a team section with photos,
+				and BibTeX — followed by your method, results, and video. Every block is drop-in: copy
+				<code>template.html</code>, replace the placeholders, and you are done. Re-theming the accent color
+				takes a single line in <code>assets/css/phai.css</code>.
 			</p>
 
-			<!-- ===== VIDEO ===== -->
-			<h3 id="video">Video</h3>
-			<div class="video-embed">
-				<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-						title="Project video" allowfullscreen
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+			<!-- ===== PAPER ===== -->
+			<h3>Paper</h3>
+			<p class="paper-venue">Conference / Journal Year &nbsp;·&nbsp; <span class="award">★ Award (example) ★</span></p>
+			<p class="paper-links">
+				<a href="https://arxiv.org/">arXiv</a> ·
+				<a href="https://github.com/phai-lab/project_website_template">PDF</a>
+			</p>
+			<a class="paper-thumb" href="https://arxiv.org/">
+				<img src="images/placeholder-thumbnail.svg" alt="First page of the paper PDF" />
+			</a>
+
+			<!-- ===== CODE & DATA (icon grid) ===== -->
+			<h3>Code &amp; Data</h3>
+			<div class="linkgrid">
+				<a href="https://github.com/phai-lab/project_website_template"><span class="ic icon fa-github"></span>Code</a>
+				<a href="#video"><span class="ic icon fa-youtube-play"></span>Video</a>
+				<a href="https://github.com/phai-lab/project_website_template"><span class="ic icon fa-database"></span>Data</a>
+				<a href="https://phai-lab.github.io/"><span class="ic icon fa-external-link"></span>Project</a>
 			</div>
-			<p class="media-caption">Replace the embedded YouTube id with your project video.</p>
+
+			<!-- ===== TEAM ===== -->
+			<h3>Team</h3>
+			<section class="team">
+				<div class="box alt">
+					<div class="row 50% uniform">
+						<div class="3u">
+							<a href="https://phai-lab.github.io/"><span class="image fit"><img src="images/placeholder-author.svg" alt="" /></span>First Author<sup>*1</sup></a>
+						</div>
+						<div class="3u">
+							<a href="https://phai-lab.github.io/"><span class="image fit"><img src="images/placeholder-author.svg" alt="" /></span>Second Author<sup>*1</sup></a>
+						</div>
+						<div class="3u">
+							<a href="https://phai-lab.github.io/"><span class="image fit"><img src="images/placeholder-author.svg" alt="" /></span>Third Author<sup>2</sup></a>
+						</div>
+						<div class="3u$">
+							<a href="https://phai-lab.github.io/"><span class="image fit"><img src="images/placeholder-author.svg" alt="" /></span>Senior Author<sup>1</sup></a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<p class="affiliations">
+				<sup>1</sup> <a href="https://www.tamu.edu/">Texas A&amp;M University</a> &nbsp;&nbsp;&nbsp;
+				<sup>2</sup> Collaborating Institution &nbsp;&nbsp;&nbsp;
+				<sup>*</sup> Equal contribution
+			</p>
+
+			<!-- ===== BIBTEX ===== -->
+			<h3>BibTeX</h3>
+			<pre><code>@article{phai2026template,
+  title   = {PHAI Project Page Template: A Consistent Website Style for PHAI Lab Papers},
+  author  = {Author, First and Author, Second and Author, Third and Author, Senior},
+  journal = {PHAI Lab},
+  year    = {2026}
+}</code></pre>
 
 			<!-- ===== METHOD ===== -->
 			<h3>Method</h3>
-			<span class="image">
+			<span class="image figure">
 				<img src="images/placeholder-figure.svg" alt="Placeholder diagram standing in for the method/pipeline figure" />
 			</span>
 			<p class="media-caption">Figure 1. A placeholder figure — replace with your method/pipeline diagram.</p>
 			<p>
 				Describe your approach here across as many paragraphs and figures as you need. Each
-				figure is a <code>&lt;span class="image"&gt;</code> block followed by a
+				figure is a <code>&lt;span class="image figure"&gt;</code> block followed by a
 				<code>.media-caption</code> paragraph, so adding another figure is copy-paste.
 			</p>
 
 			<!-- ===== RESULTS ===== -->
 			<h3>Results</h3>
-			<p>A responsive grid of media tiles. Use the Strata 12-column grid to lay them out.</p>
+			<p>A responsive grid of media tiles, a side-by-side comparison, and a quantitative table.</p>
 			<div class="box alt">
 				<div class="row 50% uniform">
 					<div class="4u">
@@ -129,7 +162,6 @@
 				</div>
 			</div>
 
-			<!-- Side-by-side comparison (Ours vs Baseline) -->
 			<div class="compare">
 				<div class="col ours">
 					<span class="col-label">Ours</span><span class="speed-badge">1&times;</span>
@@ -140,9 +172,8 @@
 					<img src="images/placeholder-figure.svg" alt="Placeholder clip of a baseline method" />
 				</div>
 			</div>
-			<p class="media-caption">Side-by-side comparison — our method (left) vs a baseline (right). Swap the placeholders for synchronized clips.</p>
+			<p class="media-caption">Side-by-side comparison — our method (left) vs a baseline (right).</p>
 
-			<!-- Quantitative results table -->
 			<div class="table-wrap">
 				<table class="results-table">
 					<thead><tr><th>Task</th><th>Baseline</th><th>Ours</th></tr></thead>
@@ -155,41 +186,27 @@
 			</div>
 			<p class="media-caption">Example benchmark table (success rate %). Best result per row in <span class="best">accent bold</span>.</p>
 
-			<!-- ===== TEAM ===== -->
-			<h3>Team</h3>
-			<section class="team">
-				<div class="box alt">
-					<div class="row 50% uniform">
-						<div class="3u">
-							<a href="https://phai-lab.github.io/"><span class="image fit"><img src="images/placeholder-author.svg" alt="" /></span>First Author</a>
-						</div>
-						<div class="3u">
-							<a href="https://phai-lab.github.io/"><span class="image fit"><img src="images/placeholder-author.svg" alt="" /></span>Second Author</a>
-						</div>
-						<div class="3u">
-							<a href="https://phai-lab.github.io/"><span class="image fit"><img src="images/placeholder-author.svg" alt="" /></span>Third Author</a>
-						</div>
-						<div class="3u$">
-							<a href="https://phai-lab.github.io/"><span class="image fit"><img src="images/placeholder-author.svg" alt="" /></span>Senior Author</a>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- ===== BIBTEX ===== -->
-			<h3>BibTeX</h3>
-			<pre><code>@article{phai2026template,
-  title   = {PHAI Project Page Template: A Consistent Website Style for PHAI Lab Papers},
-  author  = {Author, First and Author, Second and Author, Third and Author, Senior},
-  journal = {PHAI Lab},
-  year    = {2026}
-}</code></pre>
+			<!-- ===== VIDEO ===== -->
+			<h3 id="video">Video</h3>
+			<div class="video-embed">
+				<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+						title="Project video" allowfullscreen
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+			</div>
+			<p class="media-caption">Replace the embedded YouTube id with your project video.</p>
 
 			<!-- ===== ACKNOWLEDGEMENTS ===== -->
 			<h3>Acknowledgements</h3>
 			<p>
 				Replace this section with your funding sources and thanks. This page is built on the open-source
 				<a href="https://html5up.net/">HTML5 UP "Strata"</a> theme.
+			</p>
+
+			<!-- ===== CONTACT ===== -->
+			<h3>Contact</h3>
+			<p class="contact">
+				Questions? Contact <a href="https://phai-lab.github.io/">First Author</a> and
+				<a href="https://phai-lab.github.io/">Senior Author</a>.
 			</p>
 
 			<!-- ===== FOOTER ===== -->

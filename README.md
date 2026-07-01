@@ -5,7 +5,7 @@ pages, built on the [HTML5 UP **Strata**](https://html5up.net/strata) theme.
 
 **Live demo:** https://phai-lab.github.io/project_website_template/
 
-TAMU-maroon default · single-variable re-theming · responsive · accessible · GitHub-Pages-ready
+PHAI-navy default · single-variable re-theming · responsive · accessible · GitHub-Pages-ready
 
 ---
 
@@ -19,7 +19,7 @@ TAMU-maroon default · single-variable re-theming · responsive · accessible ·
 | `assets/css/phai.css` | **PHAI customizations** — change the accent color and all layout tweaks here. |
 | `assets/css/font-awesome.min.css`, `assets/fonts/` | Icons used in the link buttons. |
 | `assets/js/` | Theme scripts (jQuery, skel, poptrox lightbox). |
-| `images/` | `tamu-logo.png` (affiliation logo in the top row), `favicon.png` (browser-tab icon), `og-card.png` (social-share preview, 1200×630), and `placeholder-{teaser,figure,author,logo}.svg` for the section figures. Swap these for your own assets. |
+| `images/` | `tamu-logo.png` (affiliation logo in the top row), `favicon.png` (browser-tab icon), `og-card.png` (social-share preview, 1200×630), and `placeholder-{teaser,thumbnail,figure,author,logo}.svg` for the teaser, paper thumbnail, and section figures. Swap these for your own assets. |
 | `videos/` | Put your `.mp4` clips here. |
 | `.nojekyll` | Tells GitHub Pages to serve files as-is (no Jekyll processing). |
 
@@ -43,33 +43,35 @@ Then open the copy and:
 Open `assets/css/phai.css` and change `--accent` (and the matching `--accent-rgb`):
 
 ```css
-:root { --accent: #500000; --accent-rgb: 80, 0, 0; }   /* TAMU Aggie Maroon (default) */
+:root { --accent: #254669; --accent-rgb: 37, 70, 105; }   /* PHAI navy (default) */
 ```
 
-Examples: `#8C1515` cardinal · `#1a73e8` blue · `#4e79a7` slate. The title, section
+Examples: `#500000` maroon · `#8C1515` cardinal · `#1a73e8` blue. The title, section
 underlines, primary button, links, and accents all follow `--accent`.
 
 ---
 
 ## Sections included
 
-Affiliation logos · Title / subtitle / venue · Authors + affiliations ·
-Link buttons (Paper / arXiv / Code / Video / Data) · Teaser (image *or* autoplaying video) ·
-Abstract · Video (responsive YouTube embed) · Method (figures + text) ·
-Results (responsive grid · side-by-side **Ours vs Baseline** comparison · quantitative table) ·
-Team (circular author photos) · BibTeX · Acknowledgements · Footer.
+The layout follows a well-developed robotics project-page structure:
 
-### Link-button icons
+Affiliation logos · Title / subtitle · Labeled teaser grid · Abstract ·
+Paper (venue · arXiv/PDF links · clickable thumbnail) · Code & Data (icon grid) ·
+Team (circular author photos + affiliation legend) · BibTeX ·
+Method (figures + text) · Results (grid · side-by-side **Ours vs Baseline** comparison · quantitative table) ·
+Video (responsive YouTube embed) · Acknowledgements · Contact · Footer.
 
-Buttons use Font Awesome 4 via the theme's icon class. Pattern:
+### Link icons (the Code & Data grid)
+
+The Code & Data row uses circular icon badges (Font Awesome 4):
 
 ```html
-<a href="URL" class="button special icon fa-github">Code</a>
+<a href="URL"><span class="ic icon fa-github"></span>Code</a>
 ```
 
-`special` makes the button accent-colored (use it for the primary link). Handy icons:
-`fa-file-pdf-o` (paper), `fa-file-text-o` (arXiv), `fa-github` (code),
-`fa-youtube-play` (video), `fa-database` (data), `fa-external-link` (project).
+Handy icons: `fa-github` (code), `fa-youtube-play` (video), `fa-database` (data),
+`fa-external-link` (project), `fa-file-pdf-o` (PDF), `fa-book` (docs).
+(A pill-button style — `class="button special icon fa-…"` — is also available if you prefer.)
 
 ### The results / media grid
 
