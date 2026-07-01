@@ -1,16 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Teaser placeholder">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f3f3f6"/>
-      <stop offset="1" stop-color="#e7e7ec"/>
+      <stop offset="0" stop-color="#f2f5f9"/>
+      <stop offset="1" stop-color="#e6ebf2"/>
     </linearGradient>
   </defs>
   <rect width="1280" height="720" fill="url(#g)"/>
-  <circle cx="640" cy="312" r="62" fill="#ffffff"/>
-  <circle cx="640" cy="312" r="62" fill="none" stroke="#cfcfd6" stroke-width="2"/>
-  <polygon points="623,282 623,342 669,312" fill="#a9a9b2"/>
-  <g font-family="'Inter', Arial, sans-serif" text-anchor="middle">
-    <text x="640" y="432" font-size="40" font-weight="700" fill="#6f6f78">Teaser image or video</text>
-    <text x="640" y="476" font-size="24" fill="#9a9aa2">replace with images/teaser.* &#183; 16:9</text>
-  </g>
+  <circle cx="640" cy="345" r="60" fill="#ffffff"/>
+  <circle cx="640" cy="345" r="60" fill="none" stroke="#c6d0dd" stroke-width="2"/>
+  <polygon points="623,315 623,375 669,345" fill="#8497ae"/>
+  <text x="640" y="452" font-family="'Inter', Arial, sans-serif" font-size="25" fill="#93a0b0" text-anchor="middle">replace with your teaser &#183; 16:9</text>
 </svg>

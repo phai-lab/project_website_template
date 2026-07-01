@@ -131,7 +131,7 @@ body, input, select, textarea {
 .paper-venue .award { color: var(--accent); font-weight: 600; }
 .paper-links { text-align: center; font-weight: 600; font-size: 1.06rem; margin: 0.35em 0 1.1em; }
 .paper-links a { margin: 0 0.55em; }
-.paper-thumb { display: block; max-width: 600px; margin: 0.2em auto 0; }
+.paper-thumb { display: block; max-width: 660px; margin: 0.2em auto 0; }
 .paper-thumb img {
 	width: 100%; border: 1px solid var(--line); border-radius: 12px;
 	box-shadow: var(--shadow-sm); transition: transform .18s ease, box-shadow .18s ease;
