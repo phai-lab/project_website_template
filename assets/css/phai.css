@@ -1,6 +1,5 @@
 /*
 	PHAI Lab — project-page customizations  (layered ON TOP of Strata main.css)
-	Structure mirrors the UMI project page; visual system is PHAI navy.
 	Keep your tweaks here so the upstream theme stays pristine.
 
 	========================================================================
@@ -13,14 +12,14 @@
 
 :root {
 	--accent:        #254669;   /* PHAI navy (sampled from the lab logo) */
-	--accent-rgb:    37, 70, 105;
+	--accent-rgb:    37, 70, 105; /* keep in sync with --accent (primary-button glow) */
 	--accent-strong: #1a3550;   /* darker navy for hovers */
 	--accent-soft:   #e9eef4;   /* very light navy tint     */
 	--ink:        #1d1d1f;      /* neutral near-black headings */
 	--ink-soft:   #3a3a3c;      /* body text            */
 	--ink-muted:  #6b6b70;      /* captions / meta — WCAG AA on white & panels */
-	--line:       #e6e9ee;      /* hairline dividers    */
-	--bg-soft:    #f6f8fa;      /* panels / code blocks */
+	--line:       #e8e8ed;      /* hairline dividers    */
+	--bg-soft:    #f7f7f8;      /* panels / code blocks */
 	--radius:     16px;
 	--shadow:     0 10px 30px rgba(22,32,44,.10), 0 2px 6px rgba(22,32,44,.06);
 	--shadow-sm:  0 2px 8px rgba(22,32,44,.10);
@@ -54,7 +53,11 @@ body, input, select, textarea {
 	padding-bottom: 1.5em;
 }
 
-/* ---------- Hero: title / subtitle ---------- */
+/* Masthead landmark: cancel Strata's `header h2 + p` size/offset so the venue
+   line keeps its intended look (its color/margins already win via .venue). */
+#main .masthead .venue { font-size: inherit; margin-top: 0; line-height: 1.5; }
+
+/* ---------- Hero: title / subtitle / venue ---------- */
 #main .title {
 	text-align: center;
 	color: var(--accent);
@@ -70,7 +73,14 @@ body, input, select, textarea {
 	font-size: clamp(1.1rem, 2.6vw, 1.55rem);
 	font-weight: 400;
 	letter-spacing: -0.01em;
-	margin-bottom: 1.1em;
+	margin-bottom: 0.7em;
+}
+#main .venue {
+	text-align: center;
+	color: var(--accent);
+	font-weight: 600;
+	letter-spacing: 0.01em;
+	margin-bottom: 1.2em;
 }
 
 /* ---------- Affiliation logos ---------- */
@@ -86,25 +96,61 @@ body, input, select, textarea {
 	object-fit: contain;
 }
 
-/* ---------- Teaser (UMI-style labeled media grid) ---------- */
-.teaser-grid {
-	display: grid; grid-template-columns: 1fr 1fr; gap: 1.1em;
-	margin: 0.4em 0 0.6em;
+/* ---------- Authors + affiliations ---------- */
+.authors {
+	text-align: center;
+	font-size: 1.16rem;
+	font-weight: 500;
+	line-height: 1.85em;
+	color: var(--ink);
+	margin-bottom: 0.25em;
 }
-.teaser-grid .cell-label {
-	text-align: center; font-weight: 600; color: var(--ink);
-	margin: 0 0 0.5em; font-size: 1.02rem;
+#main .authors a, #main .affiliations a { color: var(--ink); }
+#main .authors a:hover, #main .affiliations a:hover { color: var(--accent); }
+.authors sup { color: var(--accent); font-weight: 600; }
+.affiliations {
+	text-align: center;
+	color: var(--ink-muted);
+	font-size: 1rem;
+	line-height: 1.7em;
+	margin-bottom: 1.4em;
 }
-.teaser-grid .media { position: relative; }
-.teaser-grid img, .teaser-grid video {
-	width: 100%; display: block;
-	border-radius: var(--radius); box-shadow: var(--shadow);
+.affiliations sup { color: var(--accent); }
+
+/* ---------- Link buttons (pill style) ---------- */
+.links { text-align: center; margin-bottom: 1.9em; }
+.links .button {
+	font-family: inherit;
+	display: inline-flex; align-items: center; justify-content: center;
+	gap: 0.5em;
+	min-width: 0;                  /* override Strata's min-width so pills hug content */
+	height: auto; line-height: 1;
+	margin: 0.32em 0.3em;
+	padding: 0.72em 1.25em;
+	border-radius: 999px;
+	background: var(--ink);
+	color: #fff !important;        /* must beat Strata's .button{color:#787878 !important} */
+	font-size: 0.92rem;
+	font-weight: 600;
+	letter-spacing: 0.005em;
+	text-transform: none;
+	border: 0;
+	box-shadow: var(--shadow-sm);
+	transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
-.speed-badge {
-	position: absolute; bottom: 0.6em; right: 0.6em; z-index: 2;
-	background: rgba(0,0,0,.62); color: #fff; font-size: 0.72rem; font-weight: 700;
-	padding: 0.18em 0.5em; border-radius: 6px;
+.links .button:hover {
+	background: #283341;
+	transform: translateY(-2px);
+	box-shadow: 0 10px 22px rgba(22,32,44,.22);
 }
+.links .button:active { transform: translateY(0); }
+/* block Strata's teal :hover/:active text color */
+.links .button:hover, .links .button:active,
+.links .button.special:hover, .links .button.special:active { color: #fff !important; }
+.links .button.special { background: var(--accent); box-shadow: 0 4px 14px rgba(var(--accent-rgb), .30); }
+.links .button.special:hover { background: var(--accent-strong); }
+.links .button.icon { padding-left: 1.25em; }
+.links .button.icon:before { margin-right: 0; line-height: 1; font-size: 1.08em; }
 
 /* ---------- Section headings (centered, accent underline; carry the section gap) ---------- */
 #main h3 {
@@ -124,88 +170,60 @@ body, input, select, textarea {
 	border-radius: 2px;
 	opacity: 0.92;
 }
+
+/* Optional manual divider (sections no longer emit <hr>, but it stays available) */
 #main hr { border: 0; height: 1px; background: var(--line); margin: 3.25em 0; }
-
-/* ---------- Paper section (venue + links + clickable thumbnail) ---------- */
-.paper-venue { text-align: center; color: var(--ink-soft); margin: 0 0 0.3em; }
-.paper-venue .award { color: var(--accent); font-weight: 600; }
-.paper-links { text-align: center; font-weight: 600; font-size: 1.06rem; margin: 0.35em 0 1.1em; }
-.paper-links a { margin: 0 0.55em; }
-.paper-thumb { display: block; max-width: 660px; margin: 0.2em auto 0; }
-.paper-thumb img {
-	width: 100%; border: 1px solid var(--line); border-radius: 12px;
-	box-shadow: var(--shadow-sm); transition: transform .18s ease, box-shadow .18s ease;
-}
-.paper-thumb:hover img { transform: translateY(-3px); box-shadow: var(--shadow); }
-
-/* ---------- Icon-badge link grid (UMI "Code and Tutorial" style) ---------- */
-.linkgrid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2.4em; margin: 1.1em 0 0.4em; }
-.linkgrid a {
-	display: flex; flex-direction: column; align-items: center; gap: 0.6em;
-	width: 94px; text-align: center; color: var(--ink); font-weight: 600; font-size: 0.95rem;
-	border-bottom: none;
-}
-.linkgrid a:hover { color: var(--accent); }
-.linkgrid .ic {
-	width: 66px; height: 66px; border-radius: 50%;
-	background: var(--accent-soft); color: var(--accent);
-	display: flex; align-items: center; justify-content: center; font-size: 1.7rem;
-	transition: transform .15s ease, background .15s ease, color .15s ease;
-}
-.linkgrid .ic:before { line-height: 1; }
-.linkgrid a:hover .ic { transform: translateY(-3px); background: var(--accent); color: #fff; }
-
-/* ---------- Optional pill buttons (kept available; not used by the UMI layout) ---------- */
-.links { text-align: center; margin-bottom: 1.9em; }
-.links .button {
-	font-family: inherit;
-	display: inline-flex; align-items: center; justify-content: center;
-	gap: 0.5em; min-width: 0; height: auto; line-height: 1;
-	margin: 0.32em 0.3em; padding: 0.72em 1.25em; border-radius: 999px;
-	background: var(--ink); color: #fff !important;
-	font-size: 0.92rem; font-weight: 600; letter-spacing: 0.005em; text-transform: none;
-	border: 0; box-shadow: var(--shadow-sm);
-	transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-}
-.links .button:hover { background: #283341; transform: translateY(-2px); box-shadow: 0 10px 22px rgba(22,32,44,.22); }
-.links .button:active { transform: translateY(0); }
-.links .button:hover, .links .button:active,
-.links .button.special:hover, .links .button.special:active { color: #fff !important; }
-.links .button.special { background: var(--accent); box-shadow: 0 4px 14px rgba(var(--accent-rgb), .30); }
-.links .button.special:hover { background: var(--accent-strong); }
-.links .button.icon { padding-left: 1.25em; }
-.links .button.icon:before { margin-right: 0; line-height: 1; font-size: 1.08em; }
 
 /* ---------- Media: rounded + soft shadow ---------- */
 #main img, #main video, #main iframe { max-width: 100%; }
 #main img, #main video { height: auto; }
-.figure { display: block; margin: 0.6em 0 0.2em; }
-.figure img, .figure video,
+.teaser { display: block; margin: 0.6em 0 1.4em; }
+.teaser img, .teaser video,
 span.image img,
 .image.fit img {
 	border-radius: var(--radius);
 	box-shadow: var(--shadow);
 }
+/* Let pointer events through Strata's transparent .image overlay so the
+   hover-lift fires; match the corner radius if the overlay is ever enabled. */
 #main span.image:before, #main .image.fit:before { pointer-events: none; border-radius: var(--radius); }
 .team .image:before { pointer-events: none; }
 .media-caption {
-	text-align: center; color: var(--ink-muted);
-	font-size: 0.95rem; margin-top: 0.55em; margin-bottom: 0.4em;
+	text-align: center;
+	color: var(--ink-muted);
+	font-size: 0.95rem;
+	margin-top: 0.55em;
+	margin-bottom: 0.4em;
 }
 
 /* Responsive 16:9 video wrapper (YouTube/Vimeo) */
 .video-embed {
-	position: relative; width: 100%; padding-bottom: 56.25%; height: 0;
-	margin-bottom: 0.6em; border-radius: var(--radius); overflow: hidden;
-	background: linear-gradient(135deg, #eef2f7, #e3e9f1); box-shadow: var(--shadow);
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.25%;
+	height: 0;
+	margin-bottom: 0.6em;
+	border-radius: var(--radius);
+	overflow: hidden;
+	background: linear-gradient(135deg, #eef2f7, #e3e9f1);
+	box-shadow: var(--shadow);
 }
 .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
 /* ---------- Result / media grid ---------- */
 .box.alt { border: 0; padding: 0; }
 .box.alt .image.fit img { box-shadow: var(--shadow-sm); }
-.box.alt .image.fit img, .team .image img { transition: transform .18s ease, box-shadow .18s ease; }
-.box.alt .image.fit img:hover, .team .image img:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+/* Subtle hover lift on grid + team tiles */
+.box.alt .image.fit img,
+.team .image img {
+	transition: transform .18s ease, box-shadow .18s ease;
+}
+.box.alt .image.fit img:hover,
+.team .image img:hover {
+	transform: translateY(-3px);
+	box-shadow: var(--shadow);
+}
 
 /* ---------- Side-by-side comparison (Ours vs Baseline) ---------- */
 .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1em; margin: 1em 0; }
@@ -216,59 +234,88 @@ span.image img,
 	padding: .22em .6em; border-radius: 999px; letter-spacing: .01em;
 }
 .compare .col.ours .col-label { background: var(--accent); }
+.compare .speed-badge {
+	position: absolute; bottom: .6em; right: .6em; z-index: 2;
+	background: rgba(0,0,0,.62); color: #fff; font-size: .72rem; font-weight: 700;
+	padding: .18em .5em; border-radius: 6px;
+}
 .compare video, .compare img {
 	width: 100%; height: auto; display: block;
 	border-radius: var(--radius); box-shadow: var(--shadow-sm);
 }
 
 /* ---------- Results table (benchmark) ---------- */
-.table-wrap { margin: 1.4em 0; border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-wrap {
+	margin: 1.4em 0;
+	border-radius: var(--radius);
+	box-shadow: var(--shadow-sm);
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
 .results-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin: 0; }
-.results-table th, .results-table td { padding: 0.7em 1em; text-align: center; white-space: nowrap; border-bottom: 1px solid var(--line); }
+.results-table th, .results-table td {
+	padding: 0.7em 1em; text-align: center; white-space: nowrap;
+	border-bottom: 1px solid var(--line);
+}
 .results-table thead th { background: var(--accent); color: #fff; font-weight: 700; }
 .results-table tbody tr:nth-child(even) { background: var(--bg-soft); }
 .results-table tbody tr:last-child td { border-bottom: 0; }
 .results-table td:first-child, .results-table th:first-child { text-align: left; font-weight: 600; color: var(--ink); }
 .results-table .best { font-weight: 800; color: var(--accent); }
 
-/* ---------- Team (circular photos + affiliation legend) ---------- */
-.team .image img { border-radius: 50%; box-shadow: var(--shadow-sm); aspect-ratio: 1 / 1; object-fit: cover; }
+/* ---------- Team (circular photos) ---------- */
+.team .image img {
+	border-radius: 50%;
+	box-shadow: var(--shadow-sm);
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+}
 .team a { color: var(--ink); font-weight: 600; }
 .team a:hover { color: var(--accent); }
-.team sup { color: var(--accent); font-weight: 600; }
-.affiliations { text-align: center; color: var(--ink-muted); font-size: 1rem; line-height: 1.7em; margin: 0.6em 0 0.4em; }
-.affiliations sup { color: var(--accent); }
 
 /* ---------- BibTeX ---------- */
 #main pre {
-	background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius);
-	padding: 1.25em 1.4em; box-shadow: none; overflow-x: auto; -webkit-overflow-scrolling: touch;
+	background: var(--bg-soft);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	padding: 1.25em 1.4em;
+	box-shadow: none;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
 }
 #main pre code {
-	display: block; padding: 0; overflow-x: visible;
+	display: block;
+	padding: 0;
+	overflow-x: visible;
 	font-family: 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
-	font-size: 0.86rem; line-height: 1.6; color: var(--ink-soft);
+	font-size: 0.86rem;
+	line-height: 1.6;
+	color: var(--ink-soft);
 }
 #main p code, #main li code {
-	background: var(--accent-soft); color: var(--accent-strong);
-	border-radius: 6px; padding: 0.1em 0.4em; font-size: 0.88em;
+	background: var(--accent-soft);
+	color: var(--accent-strong);
+	border-radius: 6px;
+	padding: 0.1em 0.4em;
+	font-size: 0.88em;
 }
-
-/* ---------- Contact ---------- */
-.contact { text-align: center; }
 
 /* ---------- Footer ---------- */
 #page-footer {
-	text-align: center; color: var(--ink-muted); font-size: 0.9rem;
-	border-top: 1px solid var(--line); margin-top: 3em; padding-top: 1.5em;
+	text-align: center;
+	color: var(--ink-muted);
+	font-size: 0.9rem;
+	border-top: 1px solid var(--line);
+	margin-top: 3em;
+	padding-top: 1.5em;
 }
 #page-footer a { color: var(--accent); }
 
 /* ---------- Keyboard focus (WCAG 2.4.7) ---------- */
-#main a:focus-visible, .team a:focus-visible, .linkgrid a:focus-visible {
-	outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px;
-}
+#main a:focus-visible,
+.team a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 .links .button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 999px; }
+/* Fallback for browsers without :focus-visible */
 #main a:focus, .links .button:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* ---------- Small screens ---------- */
@@ -276,22 +323,26 @@ span.image img,
 	.logo-row { gap: 1.5em; }
 	#main .logo-row img { height: 42px; }
 
-	#main h3 { font-size: 1.45rem; margin: 2.4em 0 0.7em; }
-	#main h3:after { width: 40px; }
-
-	.teaser-grid, .compare { grid-template-columns: 1fr; }
-	.linkgrid { gap: 1.6em; }
-
+	/* Buttons: clean full-width vertical stack with even gutters */
 	.links { display: flex; flex-direction: column; align-items: stretch; }
 	.links .button { width: 100%; margin: 0.45em 0; justify-content: center; }
 
-	/* Strata's plain .4u/.3u columns never reflow — force readable layouts. */
+	/* Tighten section headers for the narrow measure */
+	#main h3 { font-size: 1.45rem; margin: 2.4em 0 0.7em; }
+	#main h3:after { width: 40px; }
+
+	/* Strata's plain .4u/.3u columns never reflow — force readable layouts.
+	   Results (3 tiles) stack 1-up; Team (4 tiles) goes 2-up. */
 	.box.alt .row { margin-left: 0; }
 	.box.alt .row > * { padding-left: 0; width: 100%; }
 	.team .box.alt .row { margin-left: -1.25em; }
 	.team .box.alt .row > * { padding-left: 1.25em; width: 50%; }
 	.team .box.alt .row > *:nth-child(n+3) { margin-top: 1.5em; }
 
+	/* Comparison stacks on phones */
+	.compare { grid-template-columns: 1fr; }
+
+	/* BibTeX tighter on phones */
 	#main pre { padding: 0.9em 1em; }
 	#main pre code { font-size: 0.8rem; }
 }
@@ -304,6 +355,7 @@ span.image img,
 		transition-duration: 0.001ms !important;
 		scroll-behavior: auto !important;
 	}
-	.links .button:hover, .box.alt .image.fit img:hover, .team .image img:hover,
-	.paper-thumb:hover img, .linkgrid a:hover .ic { transform: none; }
+	.links .button:hover,
+	.box.alt .image.fit img:hover,
+	.team .image img:hover { transform: none; }
 }

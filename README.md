@@ -19,7 +19,7 @@ PHAI-navy default · single-variable re-theming · responsive · accessible · G
 | `assets/css/phai.css` | **PHAI customizations** — change the accent color and all layout tweaks here. |
 | `assets/css/font-awesome.min.css`, `assets/fonts/` | Icons used in the link buttons. |
 | `assets/js/` | Theme scripts (jQuery, skel, poptrox lightbox). |
-| `images/` | `tamu-logo.png` (affiliation logo in the top row), `favicon.png` (browser-tab icon), `og-card.png` (social-share preview, 1200×630), and `placeholder-{teaser,thumbnail,figure,author,logo}.svg` for the teaser, paper thumbnail, and section figures. Swap these for your own assets. |
+| `images/` | `tamu-logo.png` (affiliation logo in the top row), `favicon.png` (browser-tab icon), `og-card.png` (social-share preview, 1200×630), and `placeholder-{teaser,figure,author,logo}.svg` for the section figures. Swap these for your own assets. |
 | `videos/` | Put your `.mp4` clips here. |
 | `.nojekyll` | Tells GitHub Pages to serve files as-is (no Jekyll processing). |
 
@@ -53,25 +53,23 @@ underlines, primary button, links, and accents all follow `--accent`.
 
 ## Sections included
 
-The layout follows a well-developed robotics project-page structure:
+Affiliation logos · Title / subtitle / venue · Authors + affiliations ·
+Link buttons (Paper / arXiv / Code / Video / Data) · Teaser (image *or* autoplaying video) ·
+Abstract · Video (responsive YouTube embed) · Method (figures + text) ·
+Results (responsive grid · side-by-side **Ours vs Baseline** comparison · quantitative table) ·
+Team (circular author photos) · BibTeX · Acknowledgements · Footer.
 
-Affiliation logos · Title / subtitle · Labeled teaser grid · Abstract ·
-Paper (venue · arXiv/PDF links · clickable thumbnail) · Code & Data (icon grid) ·
-Team (circular author photos + affiliation legend) · BibTeX ·
-Method (figures + text) · Results (grid · side-by-side **Ours vs Baseline** comparison · quantitative table) ·
-Video (responsive YouTube embed) · Acknowledgements · Contact · Footer.
+### Link-button icons
 
-### Link icons (the Code & Data grid)
-
-The Code & Data row uses circular icon badges (Font Awesome 4):
+Buttons use Font Awesome 4 via the theme's icon class. Pattern:
 
 ```html
-<a href="URL"><span class="ic icon fa-github"></span>Code</a>
+<a href="URL" class="button special icon fa-github">Code</a>
 ```
 
-Handy icons: `fa-github` (code), `fa-youtube-play` (video), `fa-database` (data),
-`fa-external-link` (project), `fa-file-pdf-o` (PDF), `fa-book` (docs).
-(A pill-button style — `class="button special icon fa-…"` — is also available if you prefer.)
+`special` makes the button accent-colored (use it for the primary link). Handy icons:
+`fa-file-pdf-o` (paper), `fa-file-text-o` (arXiv), `fa-github` (code),
+`fa-youtube-play` (video), `fa-database` (data), `fa-external-link` (project).
 
 ### The results / media grid
 
